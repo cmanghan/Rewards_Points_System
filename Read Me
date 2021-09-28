@@ -1,0 +1,24 @@
+Hi, thanks for checking out my Points Rewards System!
+
+This system is built to track the additions and spending of reward points from multiple vendors.
+The system was designed using Java Spring and tested using postman.
+
+I've made a few assumptions in creating this system:
+    -A users points with any individual vendor cannot go negative. As such, a negative transaction that is larger than
+    the balance with that vendor cannot be added.
+    -Negative transactions added as a transaction (rather than spend) are immediately balanced out using available points
+    from the same vendor
+    -Transactions can only be added one at a time
+
+You can test my system using the following calls, or by creating your own. Please note, in order to get the expected outcome
+in the example, calls should be added in this order. The order is important as the negative transaction will balance out
+using the current available balance. 
+
+● { "payer": "DANNON", "points": 300, "timestamp": "2020-10-31T10:00:00Z" }
+● { "payer": "MILLER COORS", "points": 10000, "timestamp": "2020-11-01T14:00:00Z" }
+● { "payer": "DANNON", "points": -200, "timestamp": "2020-10-31T15:00:00Z" }
+● { "payer": "UNILEVER", "points": 200, "timestamp": "2020-10-31T11:00:00Z"
+● { "payer": "DANNON", "points": 1000, "timestamp": "2020-11-02T14:00:00Z" }
+
+
+
